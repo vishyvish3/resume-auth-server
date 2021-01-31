@@ -12,11 +12,11 @@ const mongoClient = mongodb.MongoClient;
 const objectId = mongodb.ObjectID;
 const port = process.env.PORT || 3000;
 let dbUrl = process.env.DB_URL || "mongodb://127.0.0.1:27017";
-
-app.use(cors());
-app.options('*', cors());
-
 app.use(express.json());
+app.use(cors());
+
+
+
 
 app.listen(port, () => console.log("Password reset app server running on port:", port));
 
