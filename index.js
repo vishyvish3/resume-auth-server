@@ -6,14 +6,17 @@ const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer")
 
 const app = express();
+app.use(cors());
+app.use(express.json());
+
 dotenv.config();
 
 const mongoClient = mongodb.MongoClient;
 const objectId = mongodb.ObjectID;
 const port = process.env.PORT || 3000;
 let dbUrl = process.env.DB_URL || "mongodb://127.0.0.1:27017";
-app.use(express.json());
-app.use(cors());
+
+
 
 
 
