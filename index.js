@@ -68,7 +68,9 @@ app.put("/reset-password", async (req, res) => {
       mailOptions.html = resetMailToBeSend;
       await transporter.sendMail(mailOptions, function (err, info) {
         if (err) {
-          console.log(err, "error")
+           res.status(500).json({
+      message: "Internal mail Server Error"
+    });
         } else {
           console.log(info, "mail sent")
         }
