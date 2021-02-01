@@ -68,7 +68,7 @@ app.put("/reset-password", async (req, res) => {
       mailOptions.html = resetMailToBeSend;
       await transporter.sendMail(mailOptions, function (err, info) {
         if (err) {
-           res.status(500).json({
+           res.status(401).json({
       message: "Internal mail Server Error"
     });
         } else {
@@ -90,7 +90,7 @@ app.put("/reset-password", async (req, res) => {
   }
   catch (error) {
     res.status(500).json({
-      message: "Internal Server Error"
+      message: "Internal Server gmail Error"
     });
   }
 });
